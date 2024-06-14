@@ -1,13 +1,13 @@
+
+import { cookies } from "next/headers"
 import { NextResponse } from "next/server"
 
-const user = true;
-const coo = 'next-superhero'
+export const middleware = async (request) => {
+    
+    const token = cookies(request).get('next-auth.session-token');
 
-export const middleware = (request) => {
-
-    const cookies =  request.cookies.get('token')
-    if(!cookies || cookies.value !== coo) {
-        return NextResponse.redirect(new URL('/login', request.url))
+    if(!token) {
+        return NextResponse.redirect(new URL('/api/auth/signin', request.url))
     } 
 
     return NextResponse.next()

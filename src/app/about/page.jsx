@@ -1,16 +1,19 @@
 import React from "react";
 import { Headland_One } from "next/font/google";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 const headland = Headland_One({ weight: ["400"], subsets: ["latin"] });
 
 const getTime = async () => {
   const res = await fetch("http://localhost:3000/time", { cache : 'no-store'});
   const data = await res.json()
-  console.log(data);
   return data.currentTime;
 };
 
 const Page = async () => {
 
+const session = await getServerSession(authOptions)
+console.log({session});
   const currentTime =await getTime();
 
   return (

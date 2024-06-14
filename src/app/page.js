@@ -9,3 +9,24 @@ export default function Home() {
     </main>
   );
 }
+
+// const users = [
+//   {
+//     id: 1,
+//     name: "Mehedi",
+//     email: "m@gmail.com",
+//     password: "password",
+//   },
+//   {
+//     id: 2,
+//     name: "Zihad",
+//     email: "z@gmail.com",
+//     password: "password",
+//   },
+//   {
+//     id: 3,
+//     name: "Shakil",
+//     email: "s@gmail.com",
+//     password: "password",
+//   },
+// ];

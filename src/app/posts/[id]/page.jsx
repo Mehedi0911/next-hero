@@ -33,4 +33,14 @@ const PostDetailsPage = async ({params}) => {
     );
 }
 
+export async function generateStaticParams() {
+    const posts = await fetch('https://jsonplaceholder.typicode.com/posts').then((res) => res.json())
+   
+    return posts?.slice(0,10)?.map((post) => ({
+      id: post.id.toString(),
+    }))
+  }
+
+
+
 export default PostDetailsPage;
